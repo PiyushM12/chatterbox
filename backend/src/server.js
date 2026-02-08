@@ -1,6 +1,7 @@
 
 import express from "express"
 const app = express();
+import cookieParser from "cookie-parser"
 import dotenv from "dotenv"
 import path from "path"
 import authRoutes from"./routes/auth.route.js"
@@ -13,6 +14,7 @@ const __dirname = path.resolve();
 const PORT = process.env.PORT||5000;
 
 app.use(express.json())
+app.use(cookieParser())
 
 app.use("/api/auth",authRoutes)
 if(process.env.NODE_ENV==="production"){
